@@ -1,21 +1,19 @@
-cat << 'EOF' > package.json
-{
-  "name": "hulugame",
-  "version": "1.0.0",
-  "description": "Dashbet Betting Platform hosted on Render with PostgreSQL",
-  "main": "admin_server.js",
-  "scripts": {
-    "start": "node admin_server.js"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "pg": "^8.11.5"
-  },
-  "engines": {
-    "node": ">=18.0.0"
-  },
-  "author": "",
-  "license": "ISC"
-}
-EOF
+python3 -c "
+import os, re
+
+file_name = 'Dashbet3.html.html'
+if os.path.exists(file_name):
+    with open(file_name, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # 🔄 ሁሉንም የ localhost እና 127.0.0.1 ሊንኮች ወደ relative ማጽዳት
+    content = re.sub(r'http://localhost:\d+', '', content)
+    content = re.sub(r'http://127\.0\.0\.1:\d+', '', content)
+    content = re.sub(r'http://192\.168\.\d+\.\d+:\d+', '', content)
+
+    with open(file_name, 'w', encoding='utf-8') as f:
+        f.write(content)
+    print('✅ ሁሉም የሊንክ ስህተቶች በራስ-ሰር ተስተካክለዋል!')
+else:
+    print('❌ Dashbet3.html.html ፋይል አልተገኘም!')
+"
