@@ -1,0 +1,21 @@
+cat << 'EOF' > package.json
+{
+  "name": "hulugame",
+  "version": "1.0.0",
+  "description": "Dashbet Betting Platform hosted on Render with PostgreSQL",
+  "main": "admin_server.js",
+  "scripts": {
+    "start": "node admin_server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "pg": "^8.11.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
+EOF
